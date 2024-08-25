@@ -28,7 +28,7 @@ func RegisterUserHandler(ctx *gin.Context) {
 	if err != nil {
 		fmt.Println(err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{
-			"error": handler.ValidateError(err),
+			"error": "Erro ao gerar hash da senha",
 		})
 		return
 	}

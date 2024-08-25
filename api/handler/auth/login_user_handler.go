@@ -29,7 +29,7 @@ func LoginUserHandler(ctx *gin.Context) {
 	if err != nil {
 		fmt.Println(err)
 		ctx.JSON(http.StatusBadRequest, gin.H{
-			"error": err,
+			"error": "User not found",
 		})
 		return
 	}
@@ -48,7 +48,7 @@ func LoginUserHandler(ctx *gin.Context) {
 	if err != nil {
 		fmt.Println(err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{
-			"error": err,
+			"error": "Erro ao gerar token",
 		})
 		return
 	}
