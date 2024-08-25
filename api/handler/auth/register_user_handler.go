@@ -33,8 +33,8 @@ func RegisterUserHandler(ctx *gin.Context) {
 		return
 	}
 
-	userCreated, err := user.Create(map[string]interface{}{
-		"name":     userRequest.User,
+	_, err = user.Create(map[string]interface{}{
+		"name":     userRequest.Name,
 		"email":    userRequest.Email,
 		"password": string(hashPassword),
 	})
@@ -48,6 +48,6 @@ func RegisterUserHandler(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{
-		"message": userCreated,
+		"message": "User created successfully",
 	})
 }

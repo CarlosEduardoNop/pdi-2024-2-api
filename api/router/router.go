@@ -9,6 +9,7 @@ import (
 func Initialize() {
 	router := gin.Default()
 
+	UseCors(router)
 	InitializeRoutes(router)
 
 	router.Run(":" + os.Getenv("APP_PORT"))

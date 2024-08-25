@@ -26,6 +26,8 @@ func LoginUserHandler(ctx *gin.Context) {
 
 	user, err := userModel.FindByEmail(userRequest.Email)
 
+	fmt.Println(user)
+
 	if err != nil {
 		fmt.Println(err)
 		ctx.JSON(http.StatusBadRequest, gin.H{
@@ -54,6 +56,11 @@ func LoginUserHandler(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{
-		"message": token,
+		"token": token,
+		"user": gin.H{
+			"id":    user.ID,
+			"email": user.Email,
+			"name":  user.Name,
+		},
 	})
 }

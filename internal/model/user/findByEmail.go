@@ -16,7 +16,7 @@ func FindByEmail(email string) (*User, error) {
 
 	var user User
 
-	err = res.Scan(&user.ID, &user.Name, &user.Email, &user.Password, &user.CreatedAt, &user.UpdatedAt)
+	err = res.Scan(&user.ID, &user.Email, &user.Name, &user.Password, &user.CreatedAt, &user.UpdatedAt)
 
 	if err != nil {
 		fmt.Println(err)
