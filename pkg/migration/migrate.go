@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"strings"
 
-	"GoProject/pkg/db"
+	"forum-api/pkg/db"
 )
 
 type Migration struct {
