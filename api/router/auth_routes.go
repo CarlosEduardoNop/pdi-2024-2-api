@@ -6,9 +6,9 @@ import (
 )
 
 func RegisterAuthRoutes(routes *gin.RouterGroup) {
-	orderRoutes := routes.Group("/auth")
+	authRoutes := routes.Group("/auth")
 	{
-		orderRoutes.POST("/register", auth.RegisterUserHandler)
-		orderRoutes.POST("/login", auth.LoginUserHandler)
+		authRoutes.POST("/register", auth.RegisterUserHandler)
+		authRoutes.POST("/login", auth.LoginUserHandler)
 	}
 }
