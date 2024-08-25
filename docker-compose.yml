@@ -1,0 +1,28 @@
+services:
+#  rabbitmq:
+#    image: rabbitmq:3-management
+#    container_name: rabbitmq
+#    ports:
+#      - "5672:${RABBITMQ_PORT}"
+#      - "15672:15672"
+#    environment:
+#      RABBITMQ_DEFAULT_USER: "${RABBITMQ_USER}"
+#      RABBITMQ_DEFAULT_PASS: "${RABBITMQ_PASSWORD}"
+  mysql:
+    image: mysql:8
+    platform: linux/amd64
+    container_name: mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    ports:
+      - "3306:${DATABASE_PORT}"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql_data:
+    driver: local
