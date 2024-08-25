@@ -5,7 +5,7 @@ import (
 	"forum-api/api/handler"
 	request "forum-api/api/request/auth"
 	"forum-api/internal/model/user"
-	"forum-api/utils/utils"
+	"forum-api/utils"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
