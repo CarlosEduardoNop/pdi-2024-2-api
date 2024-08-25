@@ -9,5 +9,6 @@ func RegisterAuthRoutes(routes *gin.RouterGroup) {
 	orderRoutes := routes.Group("/auth")
 	{
 		orderRoutes.POST("/register", auth.RegisterUserHandler)
+		orderRoutes.POST("/login", auth.LoginUserHandler)
 	}
 }

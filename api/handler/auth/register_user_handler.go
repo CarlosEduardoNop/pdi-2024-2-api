@@ -5,8 +5,8 @@ import (
 	"forum-api/api/handler"
 	request "forum-api/api/request/auth"
 	"forum-api/internal/model/user"
+	"forum-api/utils/utils"
 	"github.com/gin-gonic/gin"
-	"golang.org/x/crypto/bcrypt"
 	"net/http"
 )
 
@@ -23,7 +23,7 @@ func RegisterUserHandler(ctx *gin.Context) {
 		return
 	}
 
-	hashPassword, err := bcrypt.GenerateFromPassword([]byte(userRequest.Password), bcrypt.DefaultCost)
+	hashPassword, err := utils.HashPassword(userRequest.Password)
 
 	if err != nil {
 		fmt.Println(err)
