@@ -6,7 +6,7 @@ import (
 	"forum-api/pkg/db"
 )
 
-func FindById(table string, id int) (*sql.Row, error) {
+func All(table string) (*sql.Rows, error) {
 	conn, err := db.OpenConnection()
 
 	if err != nil {
@@ -16,9 +16,14 @@ func FindById(table string, id int) (*sql.Row, error) {
 
 	defer conn.Close()
 
-	sql := fmt.Sprintf("SELECT * FROM %s WHERE id = ? LIMIT 1", table)
+	sql := fmt.Sprintf("SELECT * FROM %s", table)
 
-	res := conn.QueryRow(sql, id)
+	res, err := conn.Query(sql)
+
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
 
 	return res, nil
 }

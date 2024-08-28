@@ -16,7 +16,7 @@ func OpenConnection() (*sql.DB, error) {
 
 	CreateDatabase(port)
 
-	sc := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", os.Getenv("DATABASE_USER"), os.Getenv("DATABASE_PASSWORD"), os.Getenv("DATABASE_HOST"), port, os.Getenv("DATABASE_NAME"))
+	sc := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true", os.Getenv("DATABASE_USER"), os.Getenv("DATABASE_PASSWORD"), os.Getenv("DATABASE_HOST"), port, os.Getenv("DATABASE_NAME"))
 
 	conn, err := sql.Open("mysql", sc)
 
