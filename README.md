@@ -19,3 +19,8 @@ Para subir o projeto basta rodar o comando `docker compose up -d` e após rodar 
 
 - `go run ./cmd/artisan migrate` - Comando para rodar as migrations que ainda não foram executadas.
 - `go run ./cmd/artisan migration --name=` - Comando para criar uma nova migration, podendo passar o nome. Será criado um arquivo .sql na pasta *migrations*.
+
+### Versões
+
+- Go: 1.22.2
+- MYSql: 8.0.0
